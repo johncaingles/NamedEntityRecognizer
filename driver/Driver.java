@@ -19,7 +19,11 @@ public class Driver {
 		/** Save data to extracted info */
 		ExtractedInfo extractedInfo = new ExtractedInfo();
 		XMLContentAnalyzer contentReader = new XMLContentAnalyzer();
+<<<<<<< HEAD
 		contentReader.analyzePeople(xmlFile, extractedInfo);
+=======
+		contentReader.analyze(xmlFile, extractedInfo);
+>>>>>>> e5248d4731b5c59dca16cc2d251a7159380fe67f
                 
                 /**testings*/
                 
