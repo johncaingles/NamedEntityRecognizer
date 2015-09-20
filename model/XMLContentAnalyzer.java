@@ -355,11 +355,11 @@ public class XMLContentAnalyzer {
         this.xmlBodies = xmlFile.getBodies();
         this.xmlDates = xmlFile.getDates();
 
-        for(int i = 0; i < xmlDates.size(); i++) {
+        for(int i = 0; i < xmlBodies.size(); i++) {
             System.out.println("Date "+i);
             /**sa Enero 2015 | Enero 15 | Enero 2*/
-            String line = xmlDates.get(i);
-            String  pattern = " [Ss]a (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){4}";
+            String line = " Sa Enero 2, 2015";// xmlBodies.get(i)
+            String  pattern = " [Ss]a ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]{1,2})?(, [0-9]{4})?)";
 
             // Create a Pattern object
             Pattern r = Pattern.compile(pattern);
@@ -367,12 +367,15 @@ public class XMLContentAnalyzer {
             // Now create matcher object.
             Matcher m = r.matcher(line);
             while (m.find( )) {
-               System.out.println("Found value: " + m.group(1) );
+         System.out.println("Found value: " + m.group(0) );
+         System.out.println("Found value: " + m.group(1) );
+         System.out.println("Found value: " + m.group(2) );
+         dates.add(m.group(1));
             }
                System.out.println("------------------------------");
 
             /**sa Enero 2, 2015 | Enero 25, 2015 | Enero 25, '15*/      
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [Ss]a (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}";
 
             // Create a Pattern object
@@ -382,12 +385,12 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
-               System.out.println("Found value: " + m.group(5) );
+               //System.out.println("Found value: " + m.group(5) );
             }
                System.out.println("------------------------------");	
                
            /**sa Enero 2015 | Enero 15 | Enero 2 | Enero '15*/      
-           line = xmlDates.get(i);
+           line = xmlBodies.get(i);
            pattern = " [Ss]a (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4}";
 
            // Create a Pattern object
@@ -396,8 +399,8 @@ public class XMLContentAnalyzer {
            // Now create matcher object.
            m = r.matcher(line);
            while (m.find( )) {
-              System.out.println("Found value: " + m.group(1) );
-              System.out.println("Found value: " + m.group(5) );
+              System.out.println("Found value: " + m.group(0) );
+              //System.out.println("Found value: " + m.group(5) );
            }
            System.out.println("------------------------------");
 
@@ -405,7 +408,7 @@ public class XMLContentAnalyzer {
               * mm-dd-yy | dd-mm-yy | yy-mm-dd |
               * mm/dd/yyyy | dd/mm/yyyy | yyyy/mm/dd |
               * mm-dd-yyyy | dd-mm-yyyy | yyyy-mm-dd */
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [Ss]a ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
 
             // Create a Pattern object
@@ -419,7 +422,7 @@ public class XMLContentAnalyzer {
             System.out.println("------------------------------");
                
             /**ika-DD ng Enero | ika-DD ng Enero 2015*/
-           line = xmlDates.get(i);
+           line = xmlBodies.get(i);
            pattern = " [Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4}";
 
            // Create a Pattern object
@@ -433,7 +436,7 @@ public class XMLContentAnalyzer {
            System.out.println("------------------------------");
 
             /**simula/mula DATE1*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [SsMm]([i][m])?ula (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}";
 
              // Create a Pattern object
@@ -447,7 +450,7 @@ public class XMLContentAnalyzer {
             System.out.println("------------------------------");
             
             /**hanggang WORD DATE1*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [Hh]anggang (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}";
 
              // Create a Pattern object
@@ -461,7 +464,7 @@ public class XMLContentAnalyzer {
             System.out.println("------------------------------");
 
             /**simula/mula DATE2*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [SsMm]([i][m])?ula (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4}";
 
              // Create a Pattern object
@@ -475,7 +478,7 @@ public class XMLContentAnalyzer {
             System.out.println("------------------------------");
             
             /**hanggang WORD DATE2*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [Hh]anggang (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4}";
 
              // Create a Pattern object
@@ -484,12 +487,12 @@ public class XMLContentAnalyzer {
             // Now create matcher object.
             m = r.matcher(line);
             while (m.find( )) {
-               System.out.println("Found value: " + m.group(1) );
+               System.out.println("Found value: " + m.group(0) );
             }
             System.out.println("------------------------------");
             
             /**simula/mula DATE3*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [SsMm]([i][m])?ula ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
 
              // Create a Pattern object
@@ -503,7 +506,7 @@ public class XMLContentAnalyzer {
             System.out.println("------------------------------");
             
             /**hanggang DATE3*/
-            line = xmlDates.get(i);
+            line = xmlBodies.get(i);
             pattern = " [Hh]anggang ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
 
              // Create a Pattern object
