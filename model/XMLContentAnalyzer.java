@@ -10,16 +10,20 @@ public class XMLContentAnalyzer {
     private ArrayList<String> xmlTitles;
     private ArrayList<String> xmlBodies;
     private ArrayList<String> xmlDates;
+    
+    private String ignoreForNg =  "First Gentleman|Indonesia|President|Department|Social Security System|TV|Equitable-PCI Bank|Misamis Oriental|[A-Z][A-Z][A-Z]|Lakas Rep.";
+    private String ignoreForSi = "First Gentleman|President|Department|Justice Secretary|Sr. Police Supt.|[A-Z][A-Z][A-Z]|Lakas Rep.";
 	
 	public void analyze(XMLFileContents xmlFile, ExtractedInfo extractedInfo) {
 
 		// TODO REGEX HERE
-	    this.xmlTitles = xmlFile.getTitles();
+	this.xmlTitles = xmlFile.getTitles();
         this.xmlBodies = xmlFile.getBodies();
         this.xmlDates = xmlFile.getDates();
        
-       for(int i = 5; i < 6; i++)
+       for(int i = 0; i < xmlBodies.size(); i++)
        {
+       System.out.println("Body "+i);
       /**ni x*/
       String line = xmlBodies.get(i);
         String  pattern = " [Nn]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]* (de la|la)?( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
@@ -51,7 +55,7 @@ public class XMLContentAnalyzer {
          
          /**si x*/
       line = xmlBodies.get(i);
-      pattern = " [Ss]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
+      pattern = " [Ss]i (?!"+ignoreForSi+")([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
       r = Pattern.compile(pattern);
@@ -65,7 +69,7 @@ public class XMLContentAnalyzer {
          
   /**kay x*/
      line = xmlBodies.get(i);
-     pattern = " [Kk]ay (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
+     pattern = " [Kk]ay (?!"+ignoreForSi+")([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
     r = Pattern.compile(pattern);
@@ -79,7 +83,7 @@ public class XMLContentAnalyzer {
          
    /**ng x*/
      line = xmlBodies.get(i);
-     pattern = " [Nn]g (?!First Gentleman|Indonesia|President|Department|Social Security System|Equitable-PCI Bank|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
+     pattern = " [Nn]g (?!"+ignoreForNg+")([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
     r = Pattern.compile(pattern);
@@ -225,6 +229,20 @@ public class XMLContentAnalyzer {
     /**Lakas Rep. x*/
       line = xmlBodies.get(i);
       pattern = "Lakas Rep. ([A-Z][a-z]*( \\\\\\\"[A-Z][a-z]*\\\\\\\")?( [A-Z][a-z]*)?(-[A-Z][a-z]*)?)";
+
+      // Create a Pattern object
+      r = Pattern.compile(pattern);
+
+      // Now create matcher object.
+      m = r.matcher(line);
+      while (m.find( )) {
+         System.out.println("Found value: " + m.group(1) );
+      }
+         System.out.println("------------------------------");
+         
+     /**Supt. x*/
+      line = xmlBodies.get(i);
+      pattern = "Supt. ([A-Z][a-z]*( \\\\\\\"[A-Z][a-z]*\\\\\\\")?( [A-Z][a-z]*)?(-[A-Z][a-z]*)?)";
 
       // Create a Pattern object
       r = Pattern.compile(pattern);
