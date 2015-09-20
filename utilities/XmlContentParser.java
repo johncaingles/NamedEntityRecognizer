@@ -40,7 +40,7 @@ public final class XmlContentParser {
 					
 			NodeList nList = doc.getElementsByTagName("article");
 			
-			System.out.println("----------------------------");
+//			System.out.println("----------------------------");
 
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 

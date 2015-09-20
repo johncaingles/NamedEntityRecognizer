@@ -3,15 +3,20 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class XMLContentAnalyzer {
     private ArrayList<String> xmlTitles;
     private ArrayList<String> xmlBodies;
     private ArrayList<String> xmlDates;
 	
 	public void analyze(XMLFileContents xmlFile, ExtractedInfo extractedInfo) {
-            this.xmlTitles = xmlFile.getTitles();
-            this.xmlBodies = xmlFile.getBodies();
-            this.xmlDates = xmlFile.getDates();
+
+		// TODO REGEX HERE
+	    this.xmlTitles = xmlFile.getTitles();
+        this.xmlBodies = xmlFile.getBodies();
+        this.xmlDates = xmlFile.getDates();
        
        for(int i = 4; i < 5; i++)
        {

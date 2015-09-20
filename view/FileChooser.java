@@ -25,7 +25,7 @@ public class FileChooser {
 		{
 			System.out.println(filepath);
 		}
-			
+		System.out.println(filepath);
 		return filepath;
 	}
 		                
