@@ -10,7 +10,7 @@ public class FileChooser {
 			
 	public String promptUserForFile() {
 			try {
-			JFileChooser fileOpen = new JFileChooser();
+			JFileChooser fileOpen = new JFileChooser("src\\News and Opinion Corpus - Ralph Regalado");
 			String[] suffices = ImageIO.getReaderFileSuffixes();
 				for (int i = 0; i < suffices.length; i++)
 				{
@@ -20,25 +20,6 @@ public class FileChooser {
 				}
 			int ret = fileOpen.showDialog(null, "Open file");
 			filepath = fileOpen.getSelectedFile().getAbsolutePath();
-			//imageLocation = imageLocation.replace('\\', '/');
-			//BufferedImage img = null;
-			/*try
-			{
-		                           File source = new File(fileOpen.getSelectedFile().getAbsolutePath());
-		                           File dest = new File("src/resources/"+source.getName()); 
-		                           copyFileUsingJava7Files(source,dest);    // move file to resource folder
-		                           imageLocation = dest.getPath().replace('\\', '/');
-				img = ImageIO.read(dest);
-				Image dimg = img.getScaledInstance(lblImage.getWidth(),
-						lblImage.getHeight(), Image.SCALE_DEFAULT);
-				ImageIcon imageIcon = new ImageIcon(dimg);
-				lblImage.setIcon(imageIcon);
-			} catch (Exception ioe)
-			{
-				JOptionPane
-						.showMessageDialog(null,
-								"Selected file is not an image. Please try again.");
-			}*/
 		
 		} catch (Exception exc)
 		{

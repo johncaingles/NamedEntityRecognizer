@@ -14,11 +14,15 @@ public class Driver {
 		
 		/** Read xml */
 		XMLFileContents xmlFile = XmlContentParser.parseXML(fileName);
+                //System.out.println(xmlFile.getBodies().get(1));
 		
 		/** Save data to extracted info */
 		ExtractedInfo extractedInfo = new ExtractedInfo();
 		XMLContentAnalyzer contentReader = new XMLContentAnalyzer();
 		contentReader.analyze(xmlFile, extractedInfo);
+                
+                /**testings*/
+                
 		
 		/** Create txt file */
 		OutputGenerator outputGenerator = new OutputGenerator();
