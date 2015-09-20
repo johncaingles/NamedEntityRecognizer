@@ -17,12 +17,11 @@ public class Driver {
                 //System.out.println(xmlFile.getBodies().get(1));
 		
 		/** Save data to extracted info */
-		//ExtractedInfo extractedInfo = new ExtractedInfo();
+		ExtractedInfo extractedInfo = new ExtractedInfo();
 		XMLContentAnalyzer contentReader = new XMLContentAnalyzer();
-
-		contentReader.analyzePeople(xmlFile);
-
-		contentReader.analyzeDates(xmlFile);
+		//contentReader.analyzePeople(xmlFile, extractedInfo);
+                contentReader.analyzeDates(xmlFile, extractedInfo);
+                
 
                 
                 /**testings*/
@@ -30,6 +29,6 @@ public class Driver {
 		
 		/** Create txt file */
 		OutputGenerator outputGenerator = new OutputGenerator();
-		//outputGenerator.createTxtResultsFromExtractedInfo(extractedInfo);
+		outputGenerator.createTxtResultsFromExtractedInfo(extractedInfo);
 	}
 }
