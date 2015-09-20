@@ -18,11 +18,11 @@ public class XMLContentAnalyzer {
         this.xmlBodies = xmlFile.getBodies();
         this.xmlDates = xmlFile.getDates();
        
-       for(int i = 4; i < 5; i++)
+       for(int i = 5; i < 6; i++)
        {
       /**ni x*/
       String line = xmlBodies.get(i);
-        String  pattern = " [Nn]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]*( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
+        String  pattern = " [Nn]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]* (de la|la)?( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
 
       // Create a Pattern object
       Pattern r = Pattern.compile(pattern);
@@ -51,7 +51,7 @@ public class XMLContentAnalyzer {
          
          /**si x*/
       line = xmlBodies.get(i);
-      pattern = " [Ss]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]*( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
+      pattern = " [Ss]i (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
       r = Pattern.compile(pattern);
@@ -65,7 +65,7 @@ public class XMLContentAnalyzer {
          
   /**kay x*/
      line = xmlBodies.get(i);
-     pattern = " [Kk]ay (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]*( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
+     pattern = " [Kk]ay (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
     r = Pattern.compile(pattern);
@@ -79,7 +79,7 @@ public class XMLContentAnalyzer {
          
    /**ng x*/
      line = xmlBodies.get(i);
-     pattern = " [Nn]g (?!First Gentleman|President|Department|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-z]*( [A-Z][a-z]*)?( [A-Z][a-z]*)?)";
+     pattern = " [Nn]g (?!First Gentleman|Indonesia|President|Department|Social Security System|Equitable-PCI Bank|[A-Z][A-Z][A-Z]|Lakas Rep.)([A-Z][a-zñI]*( [A-Z][a-zñI]*)?( [A-Z][a-zñI]*)?)";
 
       // Create a Pattern object
     r = Pattern.compile(pattern);
