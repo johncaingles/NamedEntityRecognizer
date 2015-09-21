@@ -358,7 +358,8 @@ public class XMLContentAnalyzer {
         for(int i = 0; i < xmlBodies.size(); i++) {
             System.out.println("Date "+i);
             /**sa Enero 2015 | Enero 15 | Enero 2* |Enero 2, 2015 | Enero 25, 2015 | Enero 25, '15*/ // DONE
-            String line = " Sa Enero 2, 2015";// xmlBodies.get(i)
+//            String line = xmlBodies.get(i);
+            String line = " Disyembre 29";
             String  pattern = " [Ss]a ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]{1,2})?(, [0-9]{4})?('[0-9]{2})?)";
 
             // Create a Pattern object
@@ -379,7 +380,8 @@ public class XMLContentAnalyzer {
               * mm/dd/yyyy | dd/mm/yyyy | yyyy/mm/dd |
               * mm-dd-yyyy | dd-mm-yyyy | yyyy-mm-dd */
             line = xmlBodies.get(i);
-            pattern = " [Ss]a ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
+//            line = " 2015/07/31";
+            pattern = " [Ss]a (([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4})";
 
             // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -393,6 +395,7 @@ public class XMLContentAnalyzer {
                
             /**ika-DD ng Enero | ika-DD ng Enero 2015*/ //DONE 
            line = xmlBodies.get(i);
+//            line = " ika-29 ng Nobyembre";
            pattern = " ([Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4})";
 
            // Create a Pattern object
@@ -407,7 +410,8 @@ public class XMLContentAnalyzer {
 
             /**simula/mula DATE1*/
             line = xmlBodies.get(i);
-            pattern = " [SsMm]([i][m])?ula (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}";
+//            line = " simula Agosto 23";
+            pattern = " [SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -421,7 +425,8 @@ public class XMLContentAnalyzer {
             
             /**hanggang WORD DATE1*/
             line = xmlBodies.get(i);
-            pattern = " [Hh]anggang (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}";
+//            line = " hanggang Disyembre 29";
+            pattern = " [Hh]anggang ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -435,7 +440,8 @@ public class XMLContentAnalyzer {
 
             /**simula/mula DATE2*/
             line = xmlBodies.get(i);
-            pattern = " [SsMm]([i][m])?ula (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4}";
+//            line = " simula Disyembre 2014";
+            pattern = " [SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -449,7 +455,8 @@ public class XMLContentAnalyzer {
             
             /**hanggang WORD DATE2*/
             line = xmlBodies.get(i);
-            pattern = " [Hh]anggang (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4}";
+//            line = " hanggang Disyembre '19";
+            pattern = " [Hh]anggang ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) [']?[0-9]{1,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -457,13 +464,14 @@ public class XMLContentAnalyzer {
             // Now create matcher object.
             m = r.matcher(line);
             while (m.find( )) {
-               System.out.println("Found value: " + m.group(0) );
+               System.out.println("Found value: " + m.group(1) );
             }
             System.out.println("------------------------------");
             
             /**simula/mula DATE3*/
             line = xmlBodies.get(i);
-            pattern = " [SsMm]([i][m])?ula ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
+//            line = " simula 12-31-05";
+            pattern = " [SsMm]([i][m])?ula (([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -477,7 +485,38 @@ public class XMLContentAnalyzer {
             
             /**hanggang DATE3*/
             line = xmlBodies.get(i);
-            pattern = " [Hh]anggang ([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4}";
+//            line = " hanggang 03-04-12";
+            pattern = " [Hh]anggang (([0-9]){1,4}([/-])[0-9]{1,4}([/-])[0-9]{1,4})";
+
+             // Create a Pattern object
+            r = Pattern.compile(pattern);
+
+            // Now create matcher object.
+            m = r.matcher(line);
+            while (m.find( )) {
+               System.out.println("Found value: " + m.group(1) );
+            }
+            System.out.println("------------------------------");
+            
+            /**simula/mula ika DATE*/
+            line = xmlBodies.get(i);
+//            line = " simula ika-1 ng Disyembre 2014";
+            pattern = " [SsMm]([i][m])?ula ([Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4})";
+
+             // Create a Pattern object
+            r = Pattern.compile(pattern);
+
+            // Now create matcher object.
+            m = r.matcher(line);
+            while (m.find( )) {
+               System.out.println("Found value: " + m.group(1) );
+            }
+            System.out.println("------------------------------");
+            
+            /**hanggang ika DATE*/
+            line = xmlBodies.get(i);
+//            line = " hanggang ika-10 ng Oktubre '19";
+            pattern = " [Hh]anggang ([Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
