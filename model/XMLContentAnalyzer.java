@@ -424,7 +424,7 @@ public class XMLContentAnalyzer {
             /**simula/mula DATE1*/
             line = xmlBodies.get(i);
 //            line = " simula Agosto 23";
-            pattern = " ([SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}))";
+            pattern = " [SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4})";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
