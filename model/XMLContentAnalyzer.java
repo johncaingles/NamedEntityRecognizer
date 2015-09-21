@@ -357,7 +357,7 @@ public class XMLContentAnalyzer {
 
         for(int i = 0; i < xmlBodies.size(); i++) {
             System.out.println("Date "+i);
-            /**sa Enero 2015 | Enero 15 | Enero 2* |Enero 2, 2015 | Enero 25, 2015 | Enero 25, '15*/
+            /**sa Enero 2015 | Enero 15 | Enero 2* |Enero 2, 2015 | Enero 25, 2015 | Enero 25, '15*/ // DONE
             String line = " Sa Enero 2, 2015";// xmlBodies.get(i)
             String  pattern = " [Ss]a ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]{1,2})?(, [0-9]{4})?('[0-9]{2})?)";
 
@@ -391,9 +391,9 @@ public class XMLContentAnalyzer {
             }
             System.out.println("------------------------------");
                
-            /**ika-DD ng Enero | ika-DD ng Enero 2015*/
+            /**ika-DD ng Enero | ika-DD ng Enero 2015*/ //DONE 
            line = xmlBodies.get(i);
-           pattern = " [Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4}";
+           pattern = " ([Ii]ka-[0-9]{1,2} ng (?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre)(.)[']?[0-9]{0,4})";
 
            // Create a Pattern object
            r = Pattern.compile(pattern);
