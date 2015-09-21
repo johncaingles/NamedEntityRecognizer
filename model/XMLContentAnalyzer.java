@@ -342,9 +342,9 @@ public class XMLContentAnalyzer {
    
 	}
        
-   /*extractedInfo.setPersons(persons);
+   extractedInfo.setPersons(persons);
    extractedInfo.setPlaces(places);
-   extractedInfo.setDates(dates);*/
+   extractedInfo.setDates(dates);
         
 }
     
