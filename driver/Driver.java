@@ -1,5 +1,7 @@
 package driver;
 
+import java.io.IOException;
+
 import model.ExtractedInfo;
 import model.OutputGenerator;
 import model.XMLContentAnalyzer;
@@ -19,7 +21,7 @@ public class Driver {
 		/** Save data to extracted info */
 		ExtractedInfo extractedInfo = new ExtractedInfo();
 		XMLContentAnalyzer contentReader = new XMLContentAnalyzer();
-		//contentReader.analyzePeople(xmlFile, extractedInfo);
+		contentReader.analyzePeople(xmlFile, extractedInfo);
                 contentReader.analyzeDates(xmlFile, extractedInfo);
                 
 
@@ -29,6 +31,10 @@ public class Driver {
 		
 		/** Create txt file */
 		OutputGenerator outputGenerator = new OutputGenerator();
-		outputGenerator.createTxtResultsFromExtractedInfo(extractedInfo);
+		try {
+			outputGenerator.createTxtResultsFromExtractedInfo(extractedInfo);
+		} catch (IOException e) {
+			System.out.println("error in writing file");
+		}
 	}
 }
