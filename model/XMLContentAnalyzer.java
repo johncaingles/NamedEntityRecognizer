@@ -417,13 +417,14 @@ public class XMLContentAnalyzer {
            m = r.matcher(line);
            while (m.find( )) {
               System.out.println("Found value: " + m.group(1) );
+              dates.add(m.group(1));
            }
            System.out.println("------------------------------");
-
+           
             /**simula/mula DATE1*/
             line = xmlBodies.get(i);
 //            line = " simula Agosto 23";
-            pattern = " [SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4})";
+            pattern = " ([SsMm]([i][m])?ula ((?:Enero|Pebrero|Marso|Abril|Mayo|Hunyo|Hulyo|Agosto|Setyembre|Oktubre|Nobyembre|Disyembre) ([0-9]){0,2}[,]*(.)[']?[0-9]{0,4}))";
 
              // Create a Pattern object
             r = Pattern.compile(pattern);
@@ -432,6 +433,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -447,6 +449,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
 
@@ -462,6 +465,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -477,6 +481,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -492,6 +497,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -507,6 +513,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -522,6 +529,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
             
@@ -537,6 +545,7 @@ public class XMLContentAnalyzer {
             m = r.matcher(line);
             while (m.find( )) {
                System.out.println("Found value: " + m.group(1) );
+               dates.add(m.group(1));
             }
             System.out.println("------------------------------");
     }
