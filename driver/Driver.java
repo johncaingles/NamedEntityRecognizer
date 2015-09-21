@@ -22,7 +22,8 @@ public class Driver {
 		ExtractedInfo extractedInfo = new ExtractedInfo();
 		XMLContentAnalyzer contentReader = new XMLContentAnalyzer();
 		contentReader.analyzePeople(xmlFile, extractedInfo);
-                contentReader.analyzeDates(xmlFile, extractedInfo);
+        contentReader.analyzeDates(xmlFile, extractedInfo);
+        contentReader.analyzePlaces(xmlFile, extractedInfo);
                 
 
                 
@@ -35,6 +36,7 @@ public class Driver {
 			outputGenerator.createTxtResultsFromExtractedInfo(extractedInfo);
 		} catch (IOException e) {
 			System.out.println("error in writing file");
+			e.printStackTrace();
 		}
 	}
 }

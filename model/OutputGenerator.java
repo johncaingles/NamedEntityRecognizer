@@ -24,7 +24,7 @@ public class OutputGenerator {
 		}
 		catch (IOException iOException)
 		{
-			System.out.println("error etits");
+			System.out.println("error po");
 		}
 		
 		BufferedWriter out = new BufferedWriter(new FileWriter(fileName));

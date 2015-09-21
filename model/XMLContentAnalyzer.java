@@ -112,7 +112,7 @@ public class XMLContentAnalyzer {
       // Create a Pattern object
       r = Pattern.compile(pattern);
 
-      // Now create matcher object.
+      // Now create matcher object. 
       m = r.matcher(line);
       while (m.find( )) {
          System.out.println("Found value: " + m.group(1) );
@@ -342,10 +342,7 @@ public class XMLContentAnalyzer {
    
 	}
        
-   extractedInfo.setPersons(persons);
-   extractedInfo.setPlaces(places);
-   extractedInfo.setDates(dates);
-        
+   extractedInfo.setPersons(persons);        
 }
     
     public void analyzeDates(XMLFileContents xmlFile, ExtractedInfo extractedInfo) {
@@ -489,6 +486,102 @@ public class XMLContentAnalyzer {
             }
             System.out.println("------------------------------");
     }
+        extractedInfo.setDates(dates);
     }
 
+    public void analyzePlaces(XMLFileContents xmlFile, ExtractedInfo extractedInfo) {
+
+			// TODO REGEX HERE
+		this.xmlTitles = xmlFile.getTitles();
+        this.xmlBodies = xmlFile.getBodies();
+        this.xmlDates = xmlFile.getDates();
+	       
+	       for(int i = 0; i < xmlBodies.size(); i++)
+	       {
+		       System.out.println("Body "+i);
+		      /**ni x*/
+		      String line = xmlBodies.get(i);
+		      String  pattern = "ni( [A-Z][a-z]*\\.*)+ ng( [A-Z][a-z]*)*";
+		
+		      // Create a Pattern object
+		      Pattern r = Pattern.compile(pattern);
+		
+		      // Now create matcher object.
+		      Matcher m = r.matcher(line);
+		      while (m.find( )) {
+		         System.out.println("Found value: " + m.group(2) );
+		         if(m.group(2)!=null)
+		        	 places.add(m.group(2));
+		      }
+		         System.out.println("------------------------------");
+	         
+		         /** sila sa x */
+		         line = xmlBodies.get(i);
+			       pattern = " sila sa( [A-Z]+[a-z]*)*";
+	
+			        // Create a Pattern object
+			      r = Pattern.compile(pattern);
+	
+			        // Now create matcher object.
+			       m = r.matcher(line);
+			        while (m.find( )) {
+			           System.out.println("Found value: " + m.group(1) );
+			           if(m.group(1)!=null)
+				        	 places.add(m.group(1));
+			        }
+			           System.out.println("------------------------------");
+		           
+		           /** nagtungo sa x */
+			         line = xmlBodies.get(i);
+				       pattern = " nagtungo sa( [A-Z]*[a-z]*)";
+		
+				        // Create a Pattern object
+				      r = Pattern.compile(pattern);
+		
+				        // Now create matcher object.
+				       m = r.matcher(line);
+				        while (m.find( )) {
+				           System.out.println("Found value: " + m.group(1) );
+				           if(m.group(1)!=null)
+					        	 places.add(m.group(1));
+				        }
+				           System.out.println("------------------------------");
+					  
+		           /** x city */
+			         line = xmlBodies.get(i);
+				       pattern = "([A-Z]*[a-z]*) [Cc]ity";
+		
+				        // Create a Pattern object
+				      r = Pattern.compile(pattern);
+		
+				        // Now create matcher object.
+				       m = r.matcher(line);
+				        while (m.find( )) {
+				           System.out.println("Found value: " + m.group(0) );
+				           places.add(m.group(0));
+				        }
+				           System.out.println("------------------------------");
+				           
+	           /**sa bgy. x | sa x, y | x city*/
+		         line = xmlBodies.get(i);
+			       pattern = " sa((( Bgy. [A-Z][a-z]*)|( [A-Z]+[^\\d ][a-z]*)+)(, [A-Z][a-z]*)?)";
+	
+			        // Create a Pattern object
+			      r = Pattern.compile(pattern);
+	
+			        // Now create matcher object.
+			       m = r.matcher(line);
+			        while (m.find( )) {
+			           System.out.println("Found value: " + m.group(1) );
+			           if(m.group(1)!=null)
+				        	 places.add(m.group(1));
+			        }
+			           System.out.println("------------------------------");
+	       
+	       }
+	       
+	       
+	       
+	     extractedInfo.setPlaces(places);
+    }
 }
