@@ -356,7 +356,12 @@ public class XMLContentAnalyzer {
          System.out.println("------------------------------");
    
 	}
-       
+   
+   for(int i=0; i<persons.size(); i++) {
+	   if(persons.get(i)==null)
+		   persons.remove(i);
+   }
+   
    extractedInfo.setPersons(persons);        
 }
     
@@ -549,6 +554,10 @@ public class XMLContentAnalyzer {
             }
             System.out.println("------------------------------");
     }
+        for(int i=0; i<dates.size(); i++) {
+     	   if(dates.get(i)==null)
+     		  dates.remove(i);
+        }
         extractedInfo.setDates(dates);
     }
 
@@ -644,7 +653,10 @@ public class XMLContentAnalyzer {
 	       }
 	       
 	       
-	       
+	       for(int i=0; i<places.size(); i++) {
+	     	   if(places.get(i)==null)
+	     		  places.remove(i);
+	        }
 	     extractedInfo.setPlaces(places);
     }
 }
