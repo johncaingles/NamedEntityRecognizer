@@ -15,8 +15,8 @@ public class XMLContentAnalyzer {
     private ArrayList<String> places = new ArrayList<>();;
     private ArrayList<String> dates = new ArrayList<>();;
     
-    private String ignoreForNg =  "First Gentleman|Indonesia|United States|Armed|President|Department|Social Security System|TV|Equitable-PCI Bank|Misamis Oriental|[A-Z][A-Z][A-Z]|Zamboanga del Norte|Benguet|Lakas Rep.";
-    private String ignoreForSi = "First Gentleman|President|Department|Justice Secretary|Sr. Police Supt.|Rep.|[A-Z][A-Z][A-Z]|Lakas Rep.|Sen.";
+    private String ignoreForNg =  "First Gentleman|Indonesia|United States|Armed|President|Department|Social Security System|TV|Equitable-PCI Bank|Misamis Oriental|[A-Z][A-Z][A-Z]|Zamboanga del Norte|Benguet|Lakas Rep.|Sen.|Dr.";
+    private String ignoreForSi = "First Gentleman|President|Department|Justice Secretary|Sr. Police Supt.|Rep.|[A-Z][A-Z][A-Z]|Lakas Rep.|Sen.|Dr.";
 	
     public void analyzePeople(XMLFileContents xmlFile, ExtractedInfo extractedInfo) {
 
